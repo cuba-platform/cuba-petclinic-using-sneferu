@@ -18,12 +18,12 @@
     <layout expand="editActions" spacing="true">
         <form id="fieldGroup" dataContainer="ownerDc">
             <column width="250px">
-                <textField property="firstName"/>
-                <textField property="lastName"/>
-                <textField property="address"/>
-                <textField property="city"/>
-                <textField property="telephone"/>
-                <textField property="email"/>
+                <textField id="firstNameField" property="firstName"/>
+                <textField id="lastNameField" property="lastName"/>
+                <textField id="addressField" property="address"/>
+                <textField id="cityField" property="city"/>
+                <textField id="telephoneField" property="telephone"/>
+                <textField id="emailField" property="email"/>
             </column>
         </form>
 

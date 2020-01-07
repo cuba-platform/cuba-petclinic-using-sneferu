@@ -33,11 +33,11 @@
     <layout expand="editActions" spacing="true">
         <form id="fieldGroup" dataContainer="petDc">
             <column width="250px">
-                <textField property="name"/>
-                <textField property="identificationNumber"/>
-                <dateField property="birthDate"/>
-                <lookupPickerField property="type" optionsContainer="typesDc"/>
-                <lookupPickerField property="owner" optionsContainer="ownersDc"/>
+                <textField property="name" id="nameField"/>
+                <textField property="identificationNumber" id="identificationNumberField"/>
+                <dateField property="birthDate" id="birthDateField"/>
+                <lookupPickerField property="type" optionsContainer="typesDc" id="typeField"/>
+                <lookupPickerField property="owner" optionsContainer="ownersDc" id="ownerField"/>
             </column>
         </form>
 
