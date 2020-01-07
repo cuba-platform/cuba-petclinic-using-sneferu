@@ -31,6 +31,10 @@
                 <action id="edit" type="edit"
                         openType="DIALOG"/>
                 <action id="remove" type="remove"/>
+                <action id="createForPet"
+                  caption="msg://createForPet"
+                  icon="font-icon:BRIEFCASE"
+                />
             </actions>
             <columns>
                 <column id="visitDate"/>
@@ -40,6 +44,7 @@
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
+                <button id="createForPetBtn" action="visitsTable.createForPet"/>
                 <button id="createBtn" action="visitsTable.create"/>
                 <button id="editBtn" action="visitsTable.edit"/>
                 <button id="removeBtn" action="visitsTable.remove"/>

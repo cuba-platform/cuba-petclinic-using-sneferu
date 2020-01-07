@@ -3,8 +3,6 @@ package com.haulmont.sample.petclinic.web.owner
 import com.haulmont.cuba.gui.util.OperationResult
 import com.haulmont.sample.petclinic.web.PetclinicWebIntegrationSpec
 
-import java.rmi.server.Operation
-
 class CreateOwnerSpec extends PetclinicWebIntegrationSpec {
 
   def "an Owner can be created when all attributes are provided in the Editor"() {
