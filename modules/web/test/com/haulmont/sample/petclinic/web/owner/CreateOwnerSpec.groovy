@@ -1,6 +1,9 @@
 package com.haulmont.sample.petclinic.web.owner
 
+import com.haulmont.cuba.gui.util.OperationResult
 import com.haulmont.sample.petclinic.web.PetclinicWebIntegrationSpec
+
+import java.rmi.server.Operation
 
 class CreateOwnerSpec extends PetclinicWebIntegrationSpec {
 
@@ -10,16 +13,15 @@ class CreateOwnerSpec extends PetclinicWebIntegrationSpec {
     def ownerEdit = OwnerEditScreenObject.newEntity(uiTestAPI)
 
     when:
-    ownerEdit
-        .enterOwnerDetails(
+    OperationResult operationResult = ownerEdit
+        .saveOwnerWithDetails(
             "Ash",
             "Ketchum",
             "Miastreet 134",
             "Alabastia")
-        .save()
 
     then:
-    ownerEdit.wasSuccessfullyStored()
+    operationResult == OperationResult.success()
   }
 
   def "an Owner cannot be created when first name is missing"() {
@@ -28,15 +30,14 @@ class CreateOwnerSpec extends PetclinicWebIntegrationSpec {
     def ownerEdit = OwnerEditScreenObject.newEntity(uiTestAPI)
 
     when:
-    ownerEdit
-        .enterOwnerDetails(
+    OperationResult operationResult = ownerEdit
+        .saveOwnerWithDetails(
             null,
             "Ketchum",
             "Miastreet 134",
             "Alabastia")
-        .save()
 
     then:
-    !ownerEdit.wasSuccessfullyStored()
+    operationResult == OperationResult.fail()
   }
 }

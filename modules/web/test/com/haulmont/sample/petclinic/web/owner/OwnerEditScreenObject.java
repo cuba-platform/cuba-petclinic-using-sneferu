@@ -13,7 +13,6 @@ import static de.diedavids.sneferu.Interactions.*;
 public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI<OwnerEdit>> {
 
   private StandardEditorTestAPI<OwnerEdit> delegate;
-  private OperationResult saveResult;
 
   static OwnerEditScreenObject newEntity(
       UiTestAPI uiTestAPI
@@ -57,26 +56,18 @@ public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI
     return delegate;
   }
 
-  public OwnerEditScreenObject enterOwnerDetails(
+  public OperationResult saveOwnerWithDetails(
       String firstName,
       String lastName,
       String address,
       String city
   ) {
-    delegate
+    return (OperationResult) delegate
         .interact(enter(textField("firstNameField"), firstName))
         .andThen(enter(textField("lastNameField"), lastName))
         .andThen(enter(textField("addressField"), address))
-        .andThen(enter(textField("cityField"), city));
-    return this;
-  }
-
-  public void save() {
-    saveResult = delegate.interactAndGet(closeEditor());
-  }
-
-  public boolean wasSuccessfullyStored() {
-    return saveResult == OperationResult.success();
+        .andThen(enter(textField("cityField"), city))
+        .andThenGet(closeEditor());
   }
 
   public boolean addressIsSetTo(String expectedAddress) {
