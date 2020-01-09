@@ -21,7 +21,7 @@ class EditOwnerSpec extends PetclinicWebIntegrationSpec {
     existingOwner.address = "Miastreet 134"
 
     and:
-    def ownerEdit = openOwnerEditor(existingOwner)
+    def ownerEdit = OwnerEditScreenObject.forEntity(uiTestAPI, existingOwner)
 
     expect:
     ownerEdit.addressIsSetTo("Miastreet 134")
@@ -33,7 +33,7 @@ class EditOwnerSpec extends PetclinicWebIntegrationSpec {
     existingOwner.city = "Alabastia"
 
     and:
-    def ownerEdit = openOwnerEditor(existingOwner)
+    def ownerEdit = OwnerEditScreenObject.forEntity(uiTestAPI, existingOwner)
 
     expect:
     def city = ownerEdit.delegate()
@@ -42,8 +42,5 @@ class EditOwnerSpec extends PetclinicWebIntegrationSpec {
     city == "Alabastia"
   }
 
-  protected OwnerEditScreenObject openOwnerEditor(Owner owner) {
-    OwnerEditScreenObject.forEntity(uiTestAPI, owner)
-  }
 
 }

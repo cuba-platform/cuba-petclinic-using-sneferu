@@ -41,7 +41,6 @@ public class VisitEditTest {
 
   private UiTestAPI uiTestAPI;
 
-  private StandardLookupTestAPI<VisitBrowse> visitBrowse;
   private StandardEditorTestAPI<VisitEdit> visitEdit;
 
   private Pet pikachu;
@@ -54,7 +53,8 @@ public class VisitEditTest {
         MainScreen.class
     );
 
-    visitBrowse = uiTestAPI.openStandardLookup(Visit.class, VisitBrowse.class);
+    StandardLookupTestAPI<VisitBrowse> visitBrowse = uiTestAPI
+        .openStandardLookup(Visit.class, VisitBrowse.class);
 
     visitBrowse.interact(click(button("createBtn")));
 
