@@ -27,6 +27,12 @@
                 <action id="createDiseaseWarningMailing"
                   caption="msg://createDiseaseWarningMailing"
                   icon="font-icon:BULLHORN"/>
+                <action id="calculateDiscount"
+                  trackSelection="true"
+                  caption="msg://calculateDiscount"
+                  icon="MONEY"
+                />
+
             </actions>
             <columns>
                 <column id="name"/>
@@ -40,6 +46,9 @@
                 <button id="createBtn" action="petsTable.create"/>
                 <button id="editBtn" action="petsTable.edit"/>
                 <button id="removeBtn" action="petsTable.remove"/>
+                <button id="calculateDiscountBtn"
+                  action="petsTable.calculateDiscount"
+                />
             </buttonsPanel>
             <rows/>
         </groupTable>

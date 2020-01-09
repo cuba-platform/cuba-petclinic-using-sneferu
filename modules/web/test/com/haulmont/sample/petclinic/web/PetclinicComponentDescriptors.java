@@ -1,6 +1,6 @@
 package com.haulmont.sample.petclinic.web;
 
-import de.diedavids.sneferu.components.descriptor.TextFieldComponentDescriptor;
+import com.haulmont.sneferu.components.descriptor.TextFieldComponentDescriptor;
 
 public class PetclinicComponentDescriptors {
 

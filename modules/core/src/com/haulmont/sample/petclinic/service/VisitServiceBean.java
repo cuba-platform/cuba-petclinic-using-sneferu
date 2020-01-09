@@ -66,6 +66,13 @@ public class VisitServiceBean implements VisitService {
         .orElse(new NextMonthCalculator());
 
     return calculator.calculateRegularCheckupDate(pet, vistsOfPet, timeSource);
+  }
 
+  @Override
+  public int countVisitsForPet(Pet pet) {
+    return dataManager.load(Visit.class)
+        .query("e.pet = ?1", pet)
+        .list()
+        .size();
   }
 }

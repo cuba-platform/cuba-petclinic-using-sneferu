@@ -15,4 +15,6 @@ public interface VisitService {
       Pet pet,
       List<Visit> vistsOfPet
   );
+
+  int countVisitsForPet(Pet pet);
 }

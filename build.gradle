@@ -1,4 +1,3 @@
-
 buildscript {
     ext.cubaVersion = '7.2-SNAPSHOT'
     repositories {
@@ -155,7 +154,7 @@ configure(webModule) {
         compile(globalModule)
 
 
-        testCompile('de.diedavids.sneferu:sneferu:0.1-SNAPSHOT')
+        testCompile('com.haulmont.sneferu:sneferu:0.1-SNAPSHOT')
     }
 
     task webArchive(type: Zip) {

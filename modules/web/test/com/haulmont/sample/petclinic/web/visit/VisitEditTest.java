@@ -1,7 +1,7 @@
 package com.haulmont.sample.petclinic.web.visit;
 
-import static de.diedavids.sneferu.ComponentDescriptors.*;
-import static de.diedavids.sneferu.Interactions.*;
+import static com.haulmont.sneferu.ComponentDescriptors.*;
+import static com.haulmont.sneferu.Interactions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.haulmont.cuba.core.global.AppBeans;
@@ -16,10 +16,10 @@ import com.haulmont.sample.petclinic.entity.visit.Visit;
 import com.haulmont.sample.petclinic.web.PetclinicWebTestContainer;
 import com.haulmont.sample.petclinic.web.visit.visit.VisitBrowse;
 import com.haulmont.sample.petclinic.web.visit.visit.VisitEdit;
-import de.diedavids.sneferu.CubaWebUiTestAPI;
-import de.diedavids.sneferu.UiTestAPI;
-import de.diedavids.sneferu.screen.StandardEditorTestAPI;
-import de.diedavids.sneferu.screen.StandardLookupTestAPI;
+import com.haulmont.sneferu.CubaWebUiTestAPI;
+import com.haulmont.sneferu.UiTestAPI;
+import com.haulmont.sneferu.screen.StandardEditorTestAPI;
+import com.haulmont.sneferu.screen.StandardLookupTestAPI;
 import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -86,7 +86,7 @@ public class VisitEditTest {
   }
 
   @Test
-  public void aVisitCannotBeCreated_wshenVisitDateIsMissing() {
+  public void aVisitCannotBeCreated_whenVisitDateIsMissing() {
 
     // when:
     visitEdit

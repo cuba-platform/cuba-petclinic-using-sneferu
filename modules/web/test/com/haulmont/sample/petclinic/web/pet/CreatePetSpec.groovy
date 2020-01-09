@@ -10,20 +10,20 @@ import com.haulmont.sample.petclinic.entity.pet.Pet
 import com.haulmont.sample.petclinic.web.PetclinicWebTestContainer
 import com.haulmont.sample.petclinic.web.pet.pet.PetBrowse
 import com.haulmont.sample.petclinic.web.pet.pet.PetEdit
-import de.diedavids.sneferu.CubaWebUiTestAPI
-import de.diedavids.sneferu.UiTestAPI
-import de.diedavids.sneferu.interactions.SetValueInteraction
-import de.diedavids.sneferu.screen.StandardEditorTestAPI
-import de.diedavids.sneferu.screen.StandardLookupTestAPI
+import com.haulmont.sneferu.CubaWebUiTestAPI
+import com.haulmont.sneferu.UiTestAPI
+import com.haulmont.sneferu.interactions.SetValueInteraction
+import com.haulmont.sneferu.screen.StandardEditorTestAPI
+import com.haulmont.sneferu.screen.StandardLookupTestAPI
 import org.junit.ClassRule
 import spock.lang.Shared
 import spock.lang.Specification
 
-import static de.diedavids.sneferu.ComponentDescriptors.button
-import static de.diedavids.sneferu.ComponentDescriptors.textField
-import static de.diedavids.sneferu.Interactions.click
-import static de.diedavids.sneferu.Interactions.closeEditor
-import static de.diedavids.sneferu.Interactions.enter
+import static com.haulmont.sneferu.ComponentDescriptors.button
+import static com.haulmont.sneferu.ComponentDescriptors.textField
+import static com.haulmont.sneferu.Interactions.click
+import static com.haulmont.sneferu.Interactions.closeEditor
+import static com.haulmont.sneferu.Interactions.enter
 
 class CreatePetSpec extends Specification {
 
@@ -65,23 +65,15 @@ class CreatePetSpec extends Specification {
 
     when:
     OperationResult outcome = petEdit
-                                       .interact(setNameTo("Hoopa Unbound"))
-                                       .andThen(setIdentificationNumberTo("720"))
-                                       .andThenGet(closeEditor())
+       .interact(setNameTo("Hoopa Unbound"))
+       .andThen(setIdentificationNumberTo("720"))
+       .andThenGet(closeEditor())
 
     then:
     outcome == OperationResult.success()
 
     and:
     uiTestAPI.isActive(petBrowse)
-  }
-
-  protected SetValueInteraction setIdentificationNumberTo(String identificationNumber) {
-    enter(textField("identificationNumberField"), identificationNumber)
-  }
-
-  protected SetValueInteraction setNameTo(String name) {
-    enter(textField("nameField"), name)
   }
 
   def "a Pet cannot be created without an Identification Number"() {
@@ -104,6 +96,14 @@ class CreatePetSpec extends Specification {
     and:
     validationErrors.size() == 1
     validationErrors[0].description == "Identification Number required"
+  }
+
+  protected SetValueInteraction setIdentificationNumberTo(String identificationNumber) {
+    enter(textField("identificationNumberField"), identificationNumber)
+  }
+
+  protected SetValueInteraction setNameTo(String name) {
+    enter(textField("nameField"), name)
   }
 
 }
