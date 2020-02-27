@@ -12,6 +12,7 @@ import com.haulmont.sample.petclinic.web.pet.pet.PetBrowse
 import com.haulmont.sample.petclinic.web.pet.pet.PetEdit
 import com.haulmont.sneferu.CubaWebUiTestAPI
 import com.haulmont.sneferu.UiTestAPI
+import com.haulmont.sneferu.environment.SneferuTestUiEnvironment
 import com.haulmont.sneferu.interactions.SetValueInteraction
 import com.haulmont.sneferu.screen.StandardEditorTestAPI
 import com.haulmont.sneferu.screen.StandardLookupTestAPI
@@ -28,13 +29,14 @@ import static com.haulmont.sneferu.Interactions.enter
 class CreatePetSpec extends Specification {
 
   @Shared @ClassRule
-  TestUiEnvironment environment =
-      new TestUiEnvironment(PetclinicWebTestContainer.Common.INSTANCE)
+  SneferuTestUiEnvironment environment =
+      new SneferuTestUiEnvironment(PetclinicWebTestContainer.Common.INSTANCE)
           .withScreenPackages(
               "com.haulmont.cuba.web.app.main",
               "com.haulmont.sample.petclinic.web.pet.pet"
           )
           .withUserLogin("admin")
+          .withMainScreen(MainScreen)
 
   UiTestAPI uiTestAPI
 
@@ -42,11 +44,7 @@ class CreatePetSpec extends Specification {
   StandardEditorTestAPI<Pet, PetEdit> petEdit
 
   def setup() {
-    uiTestAPI = new CubaWebUiTestAPI(
-        environment,
-        AppBeans.get(ScreenBuilders.class),
-        MainScreen
-    )
+    uiTestAPI = environment.getUiTestAPI()
 
     petBrowse = uiTestAPI.openStandardLookup(Pet, PetBrowse)
 

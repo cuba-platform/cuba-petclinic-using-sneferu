@@ -8,6 +8,7 @@ import com.haulmont.cuba.web.testsupport.TestUiEnvironment
 import com.haulmont.cuba.web.testsupport.proxy.TestServiceProxy
 import com.haulmont.sneferu.CubaWebUiTestAPI
 import com.haulmont.sneferu.UiTestAPI
+import com.haulmont.sneferu.environment.SneferuTestUiEnvironment
 import org.junit.ClassRule
 import spock.lang.Shared
 import spock.lang.Specification
@@ -16,24 +17,21 @@ class PetclinicWebIntegrationSpec extends Specification {
 
 
   @Shared @ClassRule
-  TestUiEnvironment environment =
-      new TestUiEnvironment(PetclinicWebTestContainer.Common.INSTANCE)
+  SneferuTestUiEnvironment environment =
+      new SneferuTestUiEnvironment(PetclinicWebTestContainer.Common.INSTANCE)
           .withScreenPackages(
               "com.haulmont.cuba.web.app.main",
               "com.haulmont.sample.petclinic.web"
           )
           .withUserLogin("admin")
+          .withMainScreen(MainScreen)
 
   UiTestAPI uiTestAPI
 
   Metadata metadata
 
   def setup() {
-    uiTestAPI = new CubaWebUiTestAPI(
-        environment,
-        AppBeans.get(ScreenBuilders.class),
-        MainScreen
-    )
+    uiTestAPI = environment.getUiTestAPI()
 
     metadata = AppBeans.get(Metadata)
   }
