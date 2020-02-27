@@ -10,15 +10,15 @@ import com.haulmont.sneferu.screen.StandardEditorTestAPI;
 import static com.haulmont.sneferu.ComponentDescriptors.*;
 import static com.haulmont.sneferu.Interactions.*;
 
-public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI<OwnerEdit>> {
+public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI<Owner, OwnerEdit>> {
 
-  private StandardEditorTestAPI<OwnerEdit> delegate;
+  private StandardEditorTestAPI<Owner, OwnerEdit> delegate;
 
   static OwnerEditScreenObject newEntity(
       UiTestAPI uiTestAPI
   ) {
 
-    StandardEditorTestAPI<OwnerEdit> standardLookupTestAPI = uiTestAPI.openStandardEditor(
+    StandardEditorTestAPI<Owner, OwnerEdit> standardLookupTestAPI = uiTestAPI.openStandardEditor(
         Owner.class,
         OwnerEdit.class
     );
@@ -34,7 +34,7 @@ public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI
       Owner entity
   ) {
 
-    StandardEditorTestAPI<OwnerEdit> standardLookupTestAPI = uiTestAPI.openStandardEditor(
+    StandardEditorTestAPI<Owner, OwnerEdit> standardLookupTestAPI = uiTestAPI.openStandardEditor(
         Owner.class,
         OwnerEdit.class,
         entity
@@ -47,12 +47,12 @@ public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI
 
 
   private OwnerEditScreenObject(
-      StandardEditorTestAPI<OwnerEdit> delegate) {
+      StandardEditorTestAPI<Owner, OwnerEdit> delegate) {
     this.delegate = delegate;
   }
 
   @Override
-  public StandardEditorTestAPI<OwnerEdit> delegate() {
+  public StandardEditorTestAPI<Owner, OwnerEdit> delegate() {
     return delegate;
   }
 

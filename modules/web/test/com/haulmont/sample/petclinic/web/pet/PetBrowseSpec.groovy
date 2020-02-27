@@ -17,7 +17,7 @@ import static com.haulmont.sneferu.Interactions.enter
 
 class PetBrowseSpec extends PetclinicWebIntegrationSpec {
 
-  StandardLookupTestAPI<PetBrowse> petBrowse
+  StandardLookupTestAPI<Pet, PetBrowse> petBrowse
 
 
   def "the Discount for a Pet can be displayed via the Pet Browse Screen"() {

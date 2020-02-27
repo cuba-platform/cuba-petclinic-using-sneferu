@@ -35,7 +35,7 @@ class PetclinicWebIntegrationSpec extends Specification {
         MainScreen
     )
 
-    metadata = AppBeans.get( Metadata)
+    metadata = AppBeans.get(Metadata)
   }
 
 

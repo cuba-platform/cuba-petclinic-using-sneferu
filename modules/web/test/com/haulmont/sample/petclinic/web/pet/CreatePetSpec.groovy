@@ -38,8 +38,8 @@ class CreatePetSpec extends Specification {
 
   UiTestAPI uiTestAPI
 
-  StandardLookupTestAPI<PetBrowse> petBrowse
-  StandardEditorTestAPI<PetEdit> petEdit
+  StandardLookupTestAPI<Pet, PetBrowse> petBrowse
+  StandardEditorTestAPI<Pet, PetEdit> petEdit
 
   def setup() {
     uiTestAPI = new CubaWebUiTestAPI(
