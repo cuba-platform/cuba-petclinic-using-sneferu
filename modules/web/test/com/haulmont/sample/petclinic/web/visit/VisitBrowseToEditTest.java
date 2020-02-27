@@ -54,10 +54,6 @@ public class VisitBrowseToEditTest {
     // and:
     visitBrowse.interact(click(button("createBtn")));
 
-    // and:
-    final VisitEdit screen = visitEdit.screen();
-    assertThat(screen.getClass()).isEqualTo(VisitEdit.class);
-
     // when:
     OperationResult outcome = (OperationResult) visitEdit
         .interact(enter(dateField("visitDateField"), new Date()))

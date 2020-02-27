@@ -17,53 +17,34 @@ Those test cases show different usages of Sneferu.
 
 ### JUnit 5
 
-An example using JUnit 5 can be found in the [VisitEditTest.java](https://github.com/cuba-platform/cuba-petclinic-using-sneferu/blob/master/modules/web/test/com/haulmont/sample/petclinic/web/visit/VisitEditTest.java)
+An example using JUnit 5 can be found in the [VisitBrowseToEditTest.java](https://github.com/cuba-platform/cuba-petclinic-using-sneferu/blob/master/modules/web/test/com/haulmont/sample/petclinic/web/visit/VisitBrowseToEditTest.java)
 
 ```java
 
-public class VisitEditTest {
+public class VisitBrowseToEditTest {
 
   @RegisterExtension
-  public TestUiEnvironment environment =
-      new TestUiEnvironment(PetclinicWebTestContainer.Common.INSTANCE)
+  public SneferuTestUiEnvironment environment =
+      new SneferuTestUiEnvironment(PetclinicWebTestContainer.Common.INSTANCE)
           .withScreenPackages(
               "com.haulmont.cuba.web.app.main",
               "com.haulmont.sample.petclinic.web"
           )
-          .withUserLogin("admin");
-
-
-
-  private UiTestAPI uiTestAPI;
-
-  private StandardEditorTestAPI<VisitEdit> visitEdit;
-
-  private Pet pikachu;
-
-  @BeforeEach
-  public void setupEnvironment() {
-    uiTestAPI = new CubaWebUiTestAPI(
-        environment,
-        AppBeans.get(ScreenBuilders.class),
-        MainScreen.class
-    );
-
-    StandardLookupTestAPI<VisitBrowse> visitBrowse = uiTestAPI
-        .openStandardLookup(Visit.class, VisitBrowse.class);
-
-    visitBrowse.interact(click(button("createBtn")));
-
-    visitEdit = uiTestAPI.getOpenedEditorScreen(VisitEdit.class);
-
-
-    Metadata metadata = AppBeans.get(Metadata.class);
-    pikachu = metadata.create(Pet.class);
-    pikachu.setName("Pikachu");
-
-  }
+          .withUserLogin("admin")
+          .withMainScreen(MainScreen.class);
 
   @Test
-  public void aVisitCanBeCreated_whenAllFieldsAreFilled() {
+  public void aVisitCanBeCreated_whenAllFieldsAreFilled(
+      @StartScreen StandardLookupTestAPI<Visit,VisitBrowse> visitBrowse,
+      @SubsequentScreen StandardEditorTestAPI<Visit, VisitEdit> visitEdit,
+      @NewEntity Pet pikachu
+  ) {
+
+    // given:
+    pikachu.setName("Pikachu");
+
+    // and:
+    visitBrowse.interact(click(button("createBtn")));
 
     // when:
     OperationResult outcome = (OperationResult) visitEdit
@@ -76,34 +57,14 @@ public class VisitEditTest {
     assertThat(outcome).isEqualTo(OperationResult.success());
 
     // and:
-    assertThat(uiTestAPI.isActive(visitEdit))
+    assertThat(environment.getUiTestAPI().isActive(visitEdit))
       .isFalse();
-  }
 
-  @Test
-  public void aVisitCannotBeCreated_whenVisitDateIsMissing() {
-
-    // when:
-    visitEdit
-        .interact(enter(dateField("visitDateField"), null));
-
-    // and:
-    OperationResult outcome = (OperationResult) visitEdit
-        .interact(enter(textField("descriptionField"), "Regular Visit"))
-        .interact(select(lookupField("petField"), pikachu))
-        .andThenGet(closeEditor());
-
-    // then:
-    assertThat(outcome).isEqualTo(OperationResult.fail());
-
-    // and:
-    assertThat(visitEdit.screen().validateScreen().getAll())
-      .hasSize(1);
   }
 
   @AfterEach
   public void closeAllScreens() {
-      uiTestAPI.closeAllScreens();
+      environment.getUiTestAPI().closeAllScreens();
       TestServiceProxy.clear();
   }
 }
