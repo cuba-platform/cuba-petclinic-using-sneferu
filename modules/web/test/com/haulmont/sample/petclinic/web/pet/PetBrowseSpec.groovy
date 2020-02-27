@@ -3,10 +3,10 @@ package com.haulmont.sample.petclinic.web.pet
 import com.haulmont.sample.petclinic.entity.pet.Pet
 import com.haulmont.sample.petclinic.web.PetclinicWebIntegrationSpec
 import com.haulmont.sample.petclinic.web.pet.pet.PetBrowse
-import com.haulmont.sneferu.screen.StandardLookupTestAPI
+import de.diedavids.sneferu.screen.StandardLookupTestAPI
 
-import static com.haulmont.sneferu.ComponentDescriptors.button
-import static com.haulmont.sneferu.Interactions.click
+import static de.diedavids.sneferu.ComponentDescriptors.button
+import static de.diedavids.sneferu.Interactions.click
 
 class PetBrowseSpec extends PetclinicWebIntegrationSpec {
 

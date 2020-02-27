@@ -4,8 +4,8 @@ import com.haulmont.sample.petclinic.entity.owner.Owner
 import com.haulmont.sample.petclinic.web.PetclinicWebIntegrationSpec
 
 
-import static com.haulmont.sneferu.ComponentDescriptors.*;
-import static com.haulmont.sneferu.Interactions.*;
+import static de.diedavids.sneferu.ComponentDescriptors.*;
+import static de.diedavids.sneferu.Interactions.*;
 
 class EditOwnerSpec extends PetclinicWebIntegrationSpec {
 

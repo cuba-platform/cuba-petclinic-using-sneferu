@@ -3,12 +3,12 @@ package com.haulmont.sample.petclinic.web.owner;
 import com.haulmont.cuba.gui.util.OperationResult;
 import com.haulmont.sample.petclinic.entity.owner.Owner;
 import com.haulmont.sample.petclinic.web.owner.owner.OwnerEdit;
-import com.haulmont.sneferu.ScreenObject;
-import com.haulmont.sneferu.UiTestAPI;
-import com.haulmont.sneferu.screen.StandardEditorTestAPI;
+import de.diedavids.sneferu.ScreenObject;
+import de.diedavids.sneferu.UiTestAPI;
+import de.diedavids.sneferu.screen.StandardEditorTestAPI;
 
-import static com.haulmont.sneferu.ComponentDescriptors.*;
-import static com.haulmont.sneferu.Interactions.*;
+import static de.diedavids.sneferu.ComponentDescriptors.*;
+import static de.diedavids.sneferu.Interactions.*;
 
 public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI<Owner, OwnerEdit>> {
 

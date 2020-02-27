@@ -6,9 +6,9 @@ import com.haulmont.cuba.gui.ScreenBuilders
 import com.haulmont.cuba.web.app.main.MainScreen
 import com.haulmont.cuba.web.testsupport.TestUiEnvironment
 import com.haulmont.cuba.web.testsupport.proxy.TestServiceProxy
-import com.haulmont.sneferu.CubaWebUiTestAPI
-import com.haulmont.sneferu.UiTestAPI
-import com.haulmont.sneferu.environment.SneferuTestUiEnvironment
+import de.diedavids.sneferu.CubaWebUiTestAPI
+import de.diedavids.sneferu.UiTestAPI
+import de.diedavids.sneferu.environment.SneferuTestUiEnvironment
 import org.junit.ClassRule
 import spock.lang.Shared
 import spock.lang.Specification

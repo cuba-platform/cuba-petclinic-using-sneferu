@@ -78,15 +78,21 @@ configure([globalModule, coreModule, webModule]) {
 
 configure([globalModule, coreModule, webModule]) {
     apply(plugin: 'groovy')
-
     sourceSets {
-        main { groovy { srcDirs = ["src"] } }
-        test { groovy { srcDirs = ["test"] } }
+
+        main {
+            groovy { srcDirs = ["src"] }
+            java.outputDir = new File(project.buildDir, "classes/main")
+            groovy.outputDir = new File(project.buildDir, "classes/main")
+        }
+        test {
+            groovy { srcDirs = ["test"] }
+            java.outputDir = new File(project.buildDir, "classes/test")
+            groovy.outputDir = new File(project.buildDir, "classes/test")
+        }
     }
-
-    sourceSets.main.output.classesDir = new File(project.buildDir, "classes/main")
-    sourceSets.test.output.classesDir = new File(project.buildDir, "classes/test")
-
+    sourceSets.main.output.classesDirs.setFrom(new File(project.buildDir, "classes/main"))
+    sourceSets.test.output.classesDirs.setFrom(new File(project.buildDir, "classes/test"))
 }
 
 configure(globalModule) {
@@ -154,7 +160,7 @@ configure(webModule) {
         compile(globalModule)
 
 
-        testCompile('com.haulmont.sneferu:sneferu:0.1-SNAPSHOT')
+        testCompile('de.diedavids.sneferu:sneferu:0.1-SNAPSHOT')
     }
 
     task webArchive(type: Zip) {

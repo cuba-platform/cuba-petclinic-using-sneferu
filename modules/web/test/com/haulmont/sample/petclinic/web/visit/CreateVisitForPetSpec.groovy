@@ -11,11 +11,11 @@ import com.haulmont.sample.petclinic.web.visit.visit.CreateVisitForPet
 import com.haulmont.sample.petclinic.web.visit.visit.VisitBrowse
 import com.haulmont.sample.petclinic.web.visit.visit.VisitEdit
 
-import static com.haulmont.sneferu.ComponentDescriptors.button
-import static com.haulmont.sneferu.ComponentDescriptors.textField
-import static com.haulmont.sneferu.Interactions.click
-import static com.haulmont.sneferu.Interactions.enter
-import static com.haulmont.sneferu.Interactions.screenOpenMode
+import static de.diedavids.sneferu.ComponentDescriptors.button
+import static de.diedavids.sneferu.ComponentDescriptors.textField
+import static de.diedavids.sneferu.Interactions.click
+import static de.diedavids.sneferu.Interactions.enter
+import static de.diedavids.sneferu.Interactions.screenOpenMode
 
 class CreateVisitForPetSpec extends PetclinicWebIntegrationSpec {
   private visitService

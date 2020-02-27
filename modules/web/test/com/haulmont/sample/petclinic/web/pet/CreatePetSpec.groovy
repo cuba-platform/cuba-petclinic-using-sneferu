@@ -10,21 +10,21 @@ import com.haulmont.sample.petclinic.entity.pet.Pet
 import com.haulmont.sample.petclinic.web.PetclinicWebTestContainer
 import com.haulmont.sample.petclinic.web.pet.pet.PetBrowse
 import com.haulmont.sample.petclinic.web.pet.pet.PetEdit
-import com.haulmont.sneferu.CubaWebUiTestAPI
-import com.haulmont.sneferu.UiTestAPI
-import com.haulmont.sneferu.environment.SneferuTestUiEnvironment
-import com.haulmont.sneferu.interactions.SetValueInteraction
-import com.haulmont.sneferu.screen.StandardEditorTestAPI
-import com.haulmont.sneferu.screen.StandardLookupTestAPI
+import de.diedavids.sneferu.CubaWebUiTestAPI
+import de.diedavids.sneferu.UiTestAPI
+import de.diedavids.sneferu.environment.SneferuTestUiEnvironment
+import de.diedavids.sneferu.interactions.SetValueInteraction
+import de.diedavids.sneferu.screen.StandardEditorTestAPI
+import de.diedavids.sneferu.screen.StandardLookupTestAPI
 import org.junit.ClassRule
 import spock.lang.Shared
 import spock.lang.Specification
 
-import static com.haulmont.sneferu.ComponentDescriptors.button
-import static com.haulmont.sneferu.ComponentDescriptors.textField
-import static com.haulmont.sneferu.Interactions.click
-import static com.haulmont.sneferu.Interactions.closeEditor
-import static com.haulmont.sneferu.Interactions.enter
+import static de.diedavids.sneferu.ComponentDescriptors.button
+import static de.diedavids.sneferu.ComponentDescriptors.textField
+import static de.diedavids.sneferu.Interactions.click
+import static de.diedavids.sneferu.Interactions.closeEditor
+import static de.diedavids.sneferu.Interactions.enter
 
 class CreatePetSpec extends Specification {
 

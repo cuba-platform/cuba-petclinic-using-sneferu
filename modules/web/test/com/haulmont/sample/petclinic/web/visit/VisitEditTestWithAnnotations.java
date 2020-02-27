@@ -1,11 +1,11 @@
 package com.haulmont.sample.petclinic.web.visit;
 
-import static com.haulmont.sneferu.ComponentDescriptors.dateField;
-import static com.haulmont.sneferu.ComponentDescriptors.lookupField;
-import static com.haulmont.sneferu.ComponentDescriptors.textField;
-import static com.haulmont.sneferu.Interactions.closeEditor;
-import static com.haulmont.sneferu.Interactions.enter;
-import static com.haulmont.sneferu.Interactions.select;
+import static de.diedavids.sneferu.ComponentDescriptors.dateField;
+import static de.diedavids.sneferu.ComponentDescriptors.lookupField;
+import static de.diedavids.sneferu.ComponentDescriptors.textField;
+import static de.diedavids.sneferu.Interactions.closeEditor;
+import static de.diedavids.sneferu.Interactions.enter;
+import static de.diedavids.sneferu.Interactions.select;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.haulmont.cuba.gui.util.OperationResult;
@@ -14,11 +14,11 @@ import com.haulmont.cuba.web.testsupport.proxy.TestServiceProxy;
 import com.haulmont.sample.petclinic.entity.pet.Pet;
 import com.haulmont.sample.petclinic.entity.visit.Visit;
 import com.haulmont.sample.petclinic.web.PetclinicWebTestContainer;
-import com.haulmont.sneferu.environment.SneferuTestUiEnvironment;
-import com.haulmont.sneferu.environment.NewEntity;
-import com.haulmont.sneferu.environment.StartScreen;
+import de.diedavids.sneferu.environment.SneferuTestUiEnvironment;
+import de.diedavids.sneferu.environment.NewEntity;
+import de.diedavids.sneferu.environment.StartScreen;
 import com.haulmont.sample.petclinic.web.visit.visit.VisitEdit;
-import com.haulmont.sneferu.screen.StandardEditorTestAPI;
+import de.diedavids.sneferu.screen.StandardEditorTestAPI;
 import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
