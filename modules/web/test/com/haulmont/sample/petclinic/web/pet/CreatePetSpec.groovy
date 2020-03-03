@@ -1,16 +1,12 @@
 package com.haulmont.sample.petclinic.web.pet
 
-import com.haulmont.cuba.core.global.AppBeans
-import com.haulmont.cuba.gui.ScreenBuilders
 import com.haulmont.cuba.gui.util.OperationResult
 import com.haulmont.cuba.web.app.main.MainScreen
-import com.haulmont.cuba.web.testsupport.TestUiEnvironment
 import com.haulmont.cuba.web.testsupport.proxy.TestServiceProxy
 import com.haulmont.sample.petclinic.entity.pet.Pet
 import com.haulmont.sample.petclinic.web.PetclinicWebTestContainer
 import com.haulmont.sample.petclinic.web.pet.pet.PetBrowse
 import com.haulmont.sample.petclinic.web.pet.pet.PetEdit
-import de.diedavids.sneferu.CubaWebUiTestAPI
 import de.diedavids.sneferu.UiTestAPI
 import de.diedavids.sneferu.environment.SneferuTestUiEnvironment
 import de.diedavids.sneferu.interactions.SetValueInteraction
