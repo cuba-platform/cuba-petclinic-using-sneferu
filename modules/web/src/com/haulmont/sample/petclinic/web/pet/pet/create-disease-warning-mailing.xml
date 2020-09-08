@@ -16,7 +16,10 @@
   <actions>
     <action id="createDiseaseWarningMailing"
       caption="msg://create"
-      primary="true"
+    />
+    <action id="cancel"
+      caption="mainMsg://action.cancel"
+      icon="icons/cancel.png"
     />
   </actions>
   <layout spacing="true">
@@ -40,11 +43,14 @@
       requiredMessage="msg://diseaseRequired"
       caption="msg://disease"/>
 
-    <buttonsPanel>
+    <hbox spacing="true" >
       <button
-        id="createDiseaseWarningMailingBtn"
-        action="createDiseaseWarningMailing"
+              id="createDiseaseWarningMailingBtn"
+              action="createDiseaseWarningMailing"
+              primary="true"
+              align="MIDDLE_RIGHT"
       />
-    </buttonsPanel>
+      <button action="cancel"/>
+    </hbox>
   </layout>
 </window>

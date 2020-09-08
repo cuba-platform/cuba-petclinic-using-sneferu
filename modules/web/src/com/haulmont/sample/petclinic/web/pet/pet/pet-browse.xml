@@ -49,6 +49,9 @@
                 <button id="calculateDiscountBtn"
                   action="petsTable.calculateDiscount"
                 />
+                <button id="createDiseaseWarningMailingBtn"
+                  action="petsTable.createDiseaseWarningMailing"
+                />
             </buttonsPanel>
             <rows/>
         </groupTable>

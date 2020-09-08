@@ -47,7 +47,8 @@ public class OwnerEditScreenObject implements ScreenObject<StandardEditorTestAPI
 
 
   private OwnerEditScreenObject(
-      StandardEditorTestAPI<Owner, OwnerEdit> delegate) {
+      StandardEditorTestAPI<Owner, OwnerEdit> delegate
+  ) {
     this.delegate = delegate;
   }
 

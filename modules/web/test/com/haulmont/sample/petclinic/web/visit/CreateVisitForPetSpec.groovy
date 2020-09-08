@@ -40,7 +40,7 @@ class CreateVisitForPetSpec extends PetclinicWebIntegrationSpec {
 
     given:
     def createVisitForPetScreen = uiTestAPI
-        .getOpenedScreen(CreateVisitForPet)
+        .getOpenedStandardScreen(CreateVisitForPet)
 
     expect:
     createVisitForPetScreen.verify(screenOpenMode()) == OpenMode.DIALOG
@@ -56,7 +56,7 @@ class CreateVisitForPetSpec extends PetclinicWebIntegrationSpec {
 
     and:
     def createVisitForPetScreen = uiTestAPI
-        .getOpenedScreen(CreateVisitForPet)
+        .getOpenedStandardScreen(CreateVisitForPet)
 
     when:
     createVisitForPetScreen
@@ -82,7 +82,7 @@ class CreateVisitForPetSpec extends PetclinicWebIntegrationSpec {
 
     and:
     def createVisitForPetScreen = uiTestAPI
-        .getOpenedScreen(CreateVisitForPet)
+        .getOpenedStandardScreen(CreateVisitForPet)
 
     when:
     createVisitForPetScreen
