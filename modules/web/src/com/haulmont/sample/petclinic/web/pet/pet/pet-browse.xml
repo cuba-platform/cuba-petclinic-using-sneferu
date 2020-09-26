@@ -15,6 +15,15 @@
         </collection>
     </data>
     <dialogMode height="600" width="800"/>
+    <facets>
+        <inputDialog id="createDiseaseWarningMailing" caption="msg://createDiseaseWarningMailing" onAction="petsTable.createDiseaseWarningMailingInputDialogFacet">
+            <parameters>
+                <stringParameter id="city" required="true" caption="msg://city" />
+                <stringParameter id="disease" required="true" caption="msg://disease" />
+                <entityParameter id="petType" required="true" caption="msg://petType" entityClass="com.haulmont.sample.petclinic.entity.pet.PetType"/>
+            </parameters>
+        </inputDialog>
+    </facets>
     <layout expand="petsTable" spacing="true">
         <filter id="filter" applyTo="petsTable" dataLoader="petsDl">
             <properties include=".*"/>
@@ -27,10 +36,20 @@
                 <action id="createDiseaseWarningMailing"
                   caption="msg://createDiseaseWarningMailing"
                   icon="font-icon:BULLHORN"/>
+                <action id="createDiseaseWarningMailingInputDialogFacet"
+                  caption="msg://createDiseaseWarningMailingInputDialogFacet"
+                  icon="font-icon:BULLHORN"/>
+                <action id="createDiseaseWarningMailingInputDialog"
+                  caption="msg://createDiseaseWarningMailingInputDialog"
+                  icon="font-icon:BULLHORN"/>
                 <action id="calculateDiscount"
                   trackSelection="true"
                   caption="msg://calculateDiscount"
                   icon="MONEY"
+                />
+                <action id="greet"
+                  caption="msg://greet"
+                  icon="BUILDING"
                 />
 
             </actions>
@@ -49,8 +68,17 @@
                 <button id="calculateDiscountBtn"
                   action="petsTable.calculateDiscount"
                 />
+                <button id="greetBtn"
+                  action="petsTable.greet"
+                />
                 <button id="createDiseaseWarningMailingBtn"
                   action="petsTable.createDiseaseWarningMailing"
+                />
+                <button id="createDiseaseWarningMailingInputDialogFacetBtn"
+                  action="petsTable.createDiseaseWarningMailingInputDialogFacet"
+                />
+                <button id="createDiseaseWarningMailingInputDialogBtn"
+                  action="petsTable.createDiseaseWarningMailingInputDialog"
                 />
             </buttonsPanel>
             <rows/>

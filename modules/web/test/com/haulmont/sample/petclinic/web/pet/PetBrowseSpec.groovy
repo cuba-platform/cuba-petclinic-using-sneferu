@@ -1,5 +1,8 @@
 package com.haulmont.sample.petclinic.web.pet
 
+import com.haulmont.cuba.gui.Screens
+import com.haulmont.cuba.gui.Screens.OpenedScreens
+import com.haulmont.cuba.gui.screen.Screen
 import com.haulmont.sample.petclinic.entity.pet.Pet
 import com.haulmont.sample.petclinic.web.PetclinicWebIntegrationSpec
 import com.haulmont.sample.petclinic.web.pet.pet.PetBrowse
@@ -19,10 +22,16 @@ class PetBrowseSpec extends PetclinicWebIntegrationSpec {
     petBrowse = uiTestAPI.openStandardLookup(Pet, PetBrowse)
 
     when:
-    petBrowse.interact(click(button("calculateDiscountBtn")))
+    petBrowse.interact(click(button("greetBtn")))
 
+    def screens = environment.screens
+    def openedScreens = screens.openedScreens
+
+    def all = openedScreens.all
+    def browseScreen = environment.screens.openedScreens.all[0]
+    def window = browseScreen.window
     then:
-    uiTestAPI.isActive(petBrowse)
+    [all].size() == 2
   }
 
 }
